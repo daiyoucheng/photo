@@ -1,6 +1,7 @@
 var index = {
     picture:function () {
-        $(".col-xs-6").click(function () {
+        $(".aa").click(function () {
+            debugger;
             var data = {}
             data.url = this.children[1].innerHTML;
             var url = "http://localhost:8888/picture"
