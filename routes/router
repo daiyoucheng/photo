@@ -1,0 +1,26 @@
+var fs = require("fs")
+var form
+exports.showIndex = function (req,res) {
+    var url = "./public/file/"
+    var arr = fs.readdirSync(url)
+    var data = {};
+    data.arr = arr;
+    data.value = 1
+    res.render("index",data);
+    res.end();
+}
+
+exports.eranPicture = function (req,res) {
+    var url = "./public/file/" + req.query.url;
+    var arr = fs.readdirSync(url);
+    var data = {};
+    data.url = req.query.url
+    data.arr = arr;
+    data.value = 2;
+    res.send(data)
+    res.end();
+}
+
+exports.earnFile = function (req,res) {
+    console.log(req)
+}

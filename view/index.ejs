@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+        <script type="text/javascript" src="/bootstrap/js/jquery.min.js"></script>
+        <script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
+        <script type="text/javascript" src="/bootstrap/js/index.js"></script>
+    </head>
+    <body>
+    <nav class="navbar navbar-default">
+        <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-6" aria-expanded="true">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+            <div class="navbar-collapse collapse in" id="bs-example-navbar-collapse-6" aria-expanded="true">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="http://localhost:8888/">Home</a></li>
+                    <li><a href="#">Link</a></li>
+                    <li><a href="#">Link</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div>
+    </nav>
+    <div class="row">
+        <% if(value==1) {for(var i=0;i < arr.length;i++){%>
+        <div class="col-xs-6 col-md-3">
+            <a href="#" class="thumbnail">
+                <img src="images/saber.jpg" alt="...">
+            </a>
+            <h3 style="text-align: center"><%=arr[i]%></h3>
+        </div>
+        <%}}%>
+
+        <form action="http://localhost:8888/file" class="form-horizontal col-xs-6 col-md-3 col-xs-offset-1 col-md-offset-1" enctype="multipart/form-data">
+            <div class="form-group">
+                <select class="form-control">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputFile">File input</label>
+                <input type="file" id="exampleInputFile">
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Sign in</button>
+                </div>
+            </div>
+        </form>
+
+
+
+    </div>
+    </body>
+</html>
+
