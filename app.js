@@ -28,17 +28,22 @@ app.post("/fileUpload",function (req,res) {
         res.end();
         return;
     }
-
+    var form = new formidable.IncomingForm()
        form.keepExtensions = true;
     form.multiples=true;
     form.uploadDir = "./public/baocun";
-    form.maxFieldsSize = 20 * 1024 * 1024;
+    //设置上传文件的大小
+    form.maxFileSize = 20 * 1024 * 1024;
+    console.log(form.maxFieldsSize);
     var files = [];
     form.on('file', function (filed, file) {
         files.push([filed, file]);
     })
-
+    console.log(form.maxFieldsSize);
     form.parse(req, function(err, fields, files) {
+        if(err){
+            console.log(err);
+        }
        console.log(fields);
         console.log(files);
 
