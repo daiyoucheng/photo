@@ -1,19 +1,22 @@
-/**
- * Created by Administrator on 2017/7/18 0018.
- */
-//http://blog.csdn.net/devil13th/article/details/50404351
+
 var express = require("express");
 var router = require("./routes/router");
 var formidable = require("node-formidable")
 var ejs = require("ejs");
 var fs = require("fs");
 var path = require("path");
+
+//date format工具
 var dateutil = require("dateutil")
 var app = express();
 
-
+//设置view 默认会读（views）
 app.set("view engine","ejs");
-app.set("views","view")
+
+//修改默认路径为view
+app.set("views","view");
+
+//设置静态资源读取路径（）
 app.use(express.static("./public"))
 
 
@@ -29,12 +32,16 @@ app.post("/fileUpload",function (req,res) {
         return;
     }
     var form = new formidable.IncomingForm()
-       form.keepExtensions = true;
+    //文件保留后最美
+    form.keepExtensions = true;
+    //多文件上传
     form.multiples=true;
+    //临时文件目录
     form.uploadDir = "./public/baocun";
     //设置上传文件的大小
     form.maxFileSize = 20 * 1024 * 1024;
-    console.log(form.maxFieldsSize);
+    //设置参数的大小
+    //form.maxFieldsSize = 20 * 1024 * 1024;
     var files = [];
     form.on('file', function (filed, file) {
         files.push([filed, file]);

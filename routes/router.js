@@ -44,17 +44,3 @@ exports.earnFile = function (req,res) {
     res.end();
 }
 
-// exports.fileUpload = function (req,res) {
-//     if(req.url == "/favicon.ico") {
-//         res.end();
-//         return;
-//     }
-//     var form = new formidable.IncomingForm();
-//     form.keepExtensions = true;
-//     form.uploadDir = "./public/file/cat";
-//     form.parse(req, function(err, fields, files) {
-//         console.log(fields);
-//         console.log(files)
-//         res.end();
-//     });
-// }
