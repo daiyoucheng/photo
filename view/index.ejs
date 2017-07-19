@@ -1,5 +1,7 @@
+<!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
         <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
         <script type="text/javascript" src="/bootstrap/js/jquery.min.js"></script>
         <script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
@@ -39,7 +41,7 @@
 
 
         <%if(value==4){%>
-        <form action="http://localhost:8888/fileUpload" method="post" class="form-horizontal col-xs-6 col-md-3 col-xs-offset-1 col-md-offset-1"  enctype="multipart/form-data">
+        <form action="http://localhost:8888/fileUpload" method="post" onsubmit="return submitFun(this)" class="form-horizontal col-xs-6 col-md-3 col-xs-offset-1 col-md-offset-1"  enctype="multipart/form-data">
             <div class="form-group">
             <select class="form-control" name="url">
                 <%for(var j = 0;j <arr.length;j++){%>
@@ -49,7 +51,7 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputFile">File input</label>
-                <input type="file" id="InputFile" name="InputFile">
+                <input type="file" id="InputFile" name="InputFile" multiple="multiple"/>
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
@@ -58,9 +60,16 @@
             </div>
         </form>
         <%}%>
-
-
     </div>
+    <script>
+        function submitFun(aaa){
+            if(aaa.InputFile.value ==""){
+                alert("请上传文件")
+                return false
+            }
+            return true
+        }
+    </script>
     </body>
 </html>
 

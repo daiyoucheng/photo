@@ -1,7 +1,7 @@
 var fs = require("fs");
 var formidable = require("node-formidable")
 exports.showIndex = function (req,res) {
-    if(req.url == "/favicon.ico") {
+    if(req.url&&req.url == "/favicon.ico") {
         res.end();
         return;
     }
